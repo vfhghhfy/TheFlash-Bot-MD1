@@ -2,7 +2,7 @@
 <a href="https://github.com/araab-zack"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=9e62d7&center=falso&vCenter=falso&lines=TheFlashBot-MD++%F0%9F%90%88;©+By+Mori+Dev+%F0%9F%92%96" height="90px"></a> 
 <img src="https://files.catbox.moe/am37k3.jpg" alt="MoriBot-MD" style="width: 100%; height: auto; max-width: 500px;">
   
-> هذا المشروع مفتوح المصدر، لمزيد من المعلومات قم بزيارة **[سياسة موري بوت 📍](https://github.com/MoriCommunity/TheFlashBot-MD1/blob/master/terms.md)** 
+> هذا المشروع مفتوح المصدر، لمزيد من المعلومات قم بزيارة **[سياسة فلاش بوت 📍](https://github.com/MoriCommunity/TheFlashBot-MD1/blob/master/terms.md)** 
 </p>
 
 <p align="center">
