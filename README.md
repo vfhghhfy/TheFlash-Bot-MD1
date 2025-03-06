@@ -1,90 +1,45 @@
-<p align="center">
- <img width="180px" src="https://envs.sh/wHc.jpg" align="center"/>
- <h2 align="center">TheFlash-Bot-MD</h2>
- <p align="center">Este bot fue desarrollado por Zack y Naruto.</p>
+<p align="center"> 
+<a href="https://github.com/araab-zack"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=9e62d7&center=falso&vCenter=falso&lines=MoriBotRamadan-MD++%F0%9F%90%88;©+By+Mori+Dev+%F0%9F%92%96" height="90px"></a> 
+<img src="https://files.catbox.moe/am37k3.jpg" alt="MoriBot-MD" style="width: 100%; height: auto; max-width: 500px;">
+  
+> هذا المشروع مفتوح المصدر، لمزيد من المعلومات قم بزيارة **[سياسة موري بوت 📍](https://github.com/araab-zack/MoriBotRamadan-MD/blob/master/terms.md)** 
 </p>
 
 <p align="center">
-  <a href="https://api.whatsapp.com/send?phone=+265884756906&text=&text=.menu">Comunicarse con el bot</a>
+<a href="#"><img title="MoriBot-MD" src="https://img.shields.io/badge/IF YOU LIKE THE REPOSITORY, SUPPORT ME WITH A 🌟 THANK YOU! -red?colorA=%255ff0000&colorB=%23017e40&style=for-the-badge"></a> 
+<img src="https://i.pinimg.com/originals/d4/3c/90/d43c902873d4db8c85974dfd0798030b.gif" height="28px">
+</p>  
 
 <p align="center">
-  <a href="https://api.whatsapp.com/send?phone=+265884756906&text=&text=.اوامر">الــتــواصـل مـع الــبــوت</a>
-
-# `Flash-Bot` 
-
-# `تــم صــنــع وتــطــويــر هــذا الــبــوت بــواســطــة عــراب زاك و نــاروتــو` 
-<p align="center">
-<img src="https://envs.sh/06H.jpg" alt="⁨عــراب زاك⁩" width="900"/>
+<a href="#"><img title="MoriBot-MD" src="https://img.shields.io/badge/READ THE ENTIRE README-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge"></a> 
+<a href="#"><img title="MoriBot-MD" src="https://img.shields.io/badge/ COMPATIBLE WITH MULTI-DEVICE VERSION OF WHATSAPP-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge"></a>
 </p>
 
-------------------
+<p align="center">   
+<a href="https://github.com/araab-zack/MoriBotRamadan-MD/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/araab-zack/MoriBotRamadan-MD?label=Watchers&color=green&style=flat-square"></a>
+<a href="https://github.com/araab-zack/MoriBotRamadan-MD/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/araab-zack/MoriBotRamadan-MD?label=Stars&color=yellow&style=flat-square"></a>
+</p>
 
-> اللغه الرئيسيه التي اشتغل عليها المطورين هي *العربية و الاسبانية*
+<div align="center">
+ 
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yto941395@gmail.com)
+[![Support](https://img.shields.io/badge/Support-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/q1_1r)
+[![WhatsApp](https://img.shields.io/badge/STAFF-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/201159106301)
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@v1_1q)
+</div>
 
+### 👇 `جميع التحديثات موجودة هنا!!`
+[![الروابط](https://img.shields.io/badge/Mori-Channel-000000%7D?style=for-the-badge&logo=biolink&logoColor=white)](https://whatsapp.com/channel/0029Vb0WYOu2f3EAb74gf02h)
 
-> El idioma principal en el que trabajaron los desarrolladores es el árabe y el Español.
-### `▢ الحسابات الرسمية`
+### 🆕 أهم مميزات هذا المشروع إطلع على الملخص!
+<details>
+  <summary><b>⭐ اضغط هنا</b></summary>
 
-[ 🔗 ] https://github.com/araab-zack
-
-[ 🔗 ] https://github.com/naru12348
-
-### `▢ مجموعات الدعم (المتوفرة)`
-### `▢ Grupos de apoyo (Disponibles)`
-
- <a href="https://chat.whatsapp.com/H93YpO0LkJNHoTmtIhcL1z" target="blank"><img src="https://img.shields.io/badge/SUPPORT_GROUP_(AR)-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a>
-
-<a href="https://chat.whatsapp.com/H93YpO0LkJNHoTmtIhcL1z" target="blank"><img src="https://img.shields.io/badge/SUPPORT_GROUP_(ES)_-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a>
-
-> [ 📌 ] لا يُسمح بالبوتات الاخري في مجموعات الدعم.
-
-> [📌] Otros bots no están permitidos en los grupos de soporte..
-
- ### `▢ارقام المطورين الرسميين (نشط)`
-
-### `▢ Números oficiales de desarrolladores (activos)`
-
-
-<a href="https://api.whatsapp.com/send/?phone=972546887176&text=/estado&type=phone_number&app_absent=0" target="blank"><img src="https://img.shields.io/badge/Owner_Bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-
-<a href="https://api.whatsapp.com/send/?phone=201224563219&text=/estado&type=phone_number&app_absent=0" target="blank"><img src="https://img.shields.io/badge/Owner_Bot2-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-
-### `▢يوتيوب المطور الرسمي (نشط)`
-
-### `▢ Desarrollador oficial de YouTube (activo)`
-
-<a href="https://www.youtube.com/@Zack_247">
-<img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">
-</a>
-
-### `▢يوتيوب2 المطور الرسمي (نشط)`
-
-### `▢ Desarrollador oficial de YouTube2 (activo)`
-
-<a href="https://www.youtube.com/@Zack_247">
-<img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">
-</a>
-
-
-
-### 📁 طريقة رفع البوت عبر تيرموكس 🙌
-### 📁 Cómo subir el bot vía Termux 🙌
-### [`FlashBot-MD ~ فريق الدعم - equipo de soporte`](https://api.whatsapp.com/send/?phone=972546887176&text=/estado&type=phone_number&app_absent=0)
-```bash
-termux-setup-storage
-```
-```bash
-apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
-```
-```bash
-cd storage/downloads/TheFlash-Bot-MD1-master/TheFlash-Bot-MD1-master 
-```
-```bash
-yarn install
-```
-```bash
-npm install
-```
-```bash
-npm start
-```
+ <details>
+  <summary><b>🐈 على MoriBot-MD</b></summary>
+  
+| مشكلة | وصف | اختصار |
+|------|-------------|-------|
+| 🔑 **المالكين** | *حدد من سيكون له السيطرة الكاملة على الروبوت* | [![اضغط هنا](https://img.shields.io/badge/Aquí-green)](https://github.com/araab-zack/MoriBotRamadan-MD/blob/c74265fe42d465b52d64209a50b02a5af437b8b2/config.js#L15) |
+| ✏️ **تعديل الاسم** | *تغيير اسم البوت بسهولة* | [![اضغط هنا](https://img.shields.io/badge/Aquí-green)](https://github.com/araab-zack/MoriBotRamadan-MD/blob/c74265fe42d465b52d64209a50b02a5af437b8b2/config.js#L144) | 
+| 📲 **الاتصال باستخدام الكود (اختياري)** | *قم بربط رقمك مباشرة لتلقي رمز مكون من 8 أرقام.* | [![اضغط هنا](https://img.shields.io/badge/Aquí-green)](https://github.com/araab-zack/MoriBotRamadan-MD/blob/c74265fe42d465b52d64209a50b02a5af437b8b2/config.js#L44) |
