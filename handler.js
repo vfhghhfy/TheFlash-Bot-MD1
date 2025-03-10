@@ -39,9 +39,6 @@ if (!m) {
 return;
 }
 if (global.db.data == null) await global.loadDatabase()
-/*------------------------------------------------*/	     
-if (global.chatgpt.data === null) await global.loadChatgptDB()
-/*------------------------------------------------*/	
 try {
 m = smsg(this, m) || m
 if (!m)
@@ -52,25 +49,23 @@ m.money = false
 try {
 // TODO: use loop to insert data instead of this
 let user = global.db.data.users[m.sender]
-/*------------------------------------------------*/	            
-let chatgptUser = global.chatgpt.data.users[m.sender];
-if (typeof chatgptUser !== "object")
-global.chatgpt.data.users[m.sender] = [];		
-/*------------------------------------------------*/
 if (typeof user !== 'object')
 global.db.data.users[m.sender] = {}
 if (user) {
-if (!isNumber(user.exp)) user.exp = 0
+if (!isNumber(user.exp)) user.exp = 0;
+if (user.exp < 0) user.exp = 0; 
+if (!isNumber(user.money)) user.money = 150;
+if (user.money < 0) user.money = 0; 
+if (!isNumber(user.limit)) user.limit = 15;
+if (user.limit < 0) user.limit = 0; 
+if (!isNumber(user.joincount)) user.joincount = 1 
+if (user.joincount < 0) user.joincount = 0; 
 if (!('premium' in user)) user.premium = false
-if (!('muto' in user)) user.muto = false
-if (!isNumber(user.joincount)) user.joincount = 1
-if (!isNumber(user.money)) user.money = 150
-if (!isNumber(user.limit)) user.limit = 15 	       
+if (!('muto' in user)) user.muto = false  
 if (!('registered' in user)) user.registered = false
 if (!('registroR' in user)) user.registroR = false
 if (!('registroC' in user)) user.registroC = false  
 if (!isNumber(user.IDregister)) user.IDregister = 0 
-	
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
 if (!('age' in user)) user.age = 0
@@ -107,6 +102,7 @@ if (!isNumber(user.reporte)) user.reporte = 0
 if (!('role' in user)) user.role = '*NOVATO(A)* 🪤'
 if (!isNumber(user.agility)) user.agility = 0
 if (!isNumber(user.anakanjing)) user.anakanjing = 0
+if (!user.warnPv) user.warnPv = false
 if (!isNumber(user.mesagge)) user.anakanjing = 0
 if (!isNumber(user.anakcentaur)) user.anakcentaur = 0
 if (!isNumber(user.anakgriffin)) user.anakgriffin = 0
@@ -411,7 +407,6 @@ if (!isNumber(user.pancingan)) user.pancingan = 1
 if (!isNumber(user.panda)) user.panda = 0
 if (!isNumber(user.paus)) user.paus = 0
 if (!isNumber(user.pausbakar)) user.pausbakar = 0
-if (!isNumber(user.pc)) user.pc = 0
 if (!isNumber(user.pepesikan)) user.pepesikan = 0
 if (!isNumber(user.pertambangan)) user.pertambangan = 0
 if (!isNumber(user.pertanian)) user.pertanian = 0
@@ -473,6 +468,7 @@ if (!isNumber(user.skillexp)) user.skillexp = 0
 if (!isNumber(user.snlast)) user.snlast = 0
 if (!isNumber(user.soda)) user.soda = 0
 if (!isNumber(user.sop)) user.sop = 0
+if (!isNumber(user.banco)) user.banco = 0
 if (!isNumber(user.spammer)) user.spammer = 0
 if (!isNumber(user.spinlast)) user.spinlast = 0
 if (!isNumber(user.ssapi)) user.ssapi = 0
@@ -480,6 +476,7 @@ if (!isNumber(user.stamina)) user.stamina = 100
 if (!isNumber(user.steak)) user.steak = 0
 if (!isNumber(user.stick)) user.stick = 0
 if (!isNumber(user.strength)) user.strength = 0
+if (!user.mensaje) user.mensaje = 0;
 if (!isNumber(user.string)) user.string = 0
 if (!isNumber(user.superior)) user.superior = 0
 if (!isNumber(user.suplabu)) user.suplabu = 0
@@ -539,6 +536,7 @@ anakcentaur: 0,
 anakgriffin: 0,
 anakkucing: 0,
 anakkuda: 0,
+warnPv: false,
 anakkyubi: 0,
 anaknaga: 0,
 anakpancingan: 0,
@@ -546,6 +544,8 @@ anakphonix: 0,
 anakrubah: 0,
 anakserigala: 0,
 anggur: 0,
+banco: 0,
+mensaje: 0,
 anjing: 0,
 anjinglastclaim: 0,
 antispam: 0,
@@ -832,7 +832,6 @@ panda: 0,
 pasangan: '',
 paus: 0,
 pausbakar: 0,
-pc: 0,
 pepesikan: 0,
 pet: 0,
 phonix: 0,
@@ -976,7 +975,8 @@ if (!('sWelcome' in chat)) chat.sWelcome = ''
 if (!('sBye' in chat)) chat.sBye = ''                    
 if (!('sPromote' in chat)) chat.sPromote = ''             
 if (!('sDemote' in chat)) chat.sDemote = '' 
-if (!('sCondition' in chat)) chat.sCondition = JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}])
+if (!('sCondition' in chat)) chat.sCondition = ''
+if (!('sAutorespond' in chat)) chat.sAutorespond = '' 
 if (!('delete' in chat)) chat.delete = false                   
 if (!('modohorny' in chat)) chat.modohorny = true       
 if (!('stickers' in chat)) chat.stickers = false            
@@ -998,7 +998,8 @@ if (!('antiTwitch' in chat)) chat.antiTwitch = false
 if (!('antifake' in chat)) chat.antifake = false
 if (!('reaction' in chat)) chat.reaction = true    
 if (!('viewonce' in chat)) chat.viewonce = false       
-if (!('modoadmin' in chat)) chat.modoadmin = false    
+if (!('modoadmin' in chat)) chat.modoadmin = false  
+if (!('autorespond' in chat)) chat.autorespond = true
 if (!('antitoxic' in chat)) chat.antitoxic = true
 if (!('game' in chat)) chat.game = true
 if (!('game2' in chat)) chat.game2 = true
@@ -1006,6 +1007,12 @@ if (!('simi' in chat)) chat.simi = false
 if (!('antiTraba' in chat)) chat.antiTraba = true
 if (!('autolevelup' in chat))  chat.autolevelup = true
 if (!isNumber(chat.expired)) chat.expired = 0
+if (!('horarioNsfw' in chat)) { 
+chat.horarioNsfw = {
+inicio: "00:00", 
+fin: "23:59"
+};
+}
 } else
 global.db.data.chats[m.chat] = {
 isBanned: false,
@@ -1015,7 +1022,8 @@ sWelcome: '',
 sBye: '',
 sPromote: '',
 sDemote: '', 
-sCondition: JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}]), 
+sCondition: '', 
+sAutorespond: '', 
 delete: false,
 modohorny: true,
 stickers: false,
@@ -1038,6 +1046,7 @@ antifake: false,
 reaction: true,
 viewonce: false,
 modoadmin: false,
+autorespond: true,
 antitoxic: true,
 game: true, 
 game2: true, 
@@ -1045,6 +1054,10 @@ simi: false,
 antiTraba: true,
 autolevelup: true,
 expired: 0,
+horarioNsfw: {
+inicio: "00:00", 
+fin: "23:59"
+}
 }
 let settings = global.db.data.settings[this.user.jid]
 if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
@@ -1054,6 +1067,7 @@ if (!('autoread' in settings)) settings.autoread = false
 if (!('autoread2' in settings)) settings.autoread2 = false
 if (!('restrict' in settings)) settings.restrict = false
 if (!('temporal' in settings)) settings.temporal = false
+if (!('anticommand' in settings)) settings.anticommand = false
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('antiCall' in settings)) settings.antiCall = true
 if (!('antiSpam' in settings)) settings.antiSpam = true 
@@ -1069,16 +1083,18 @@ antiPrivate: false,
 antiCall: true,
 antiSpam: true,
 modoia: false, 
+anticommand: false, 
 jadibotmd: true,
 }} catch (e) {
 console.error(e)
 }
 
-const isROwner = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+const isROwner = [...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isOwner = isROwner || m.fromMe
 const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 //const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isPrems = isROwner || global.db.data.users[m.sender].premiumTime > 0
+
 if (opts['queque'] && m.text && !(isMods || isPrems)) {
 let queque = this.msgqueque, time = 1000 * 5
 const previousID = queque[queque.length - 1]
@@ -1089,6 +1105,8 @@ await delay(time)
 }, time)
 }
 
+if ((m.id.startsWith('NJX-') || (m.id.startsWith('BAE5') && m.id.length === 16) || (m.id.startsWith('B24E') && m.id.length === 20) || m.id.startsWith('FizzxyTheGreat-') || m.id.startsWith('Lyru-'))) return
+
 if (opts['nyimak']) return
 if (!isROwner && opts['self']) return 
 if (opts['pconly'] && m.chat.endsWith('g.us')) return
@@ -1096,11 +1114,6 @@ if (opts['gconly'] && !m.chat.endsWith('g.us')) return
 if (opts['swonly'] && m.chat !== 'status@broadcast') return
 if (typeof m.text !== 'string')
 m.text = ''
-
-//if (m.isBaileys) return 
-if (m.isBaileys || isBaileysFail && m?.sender === this?.this?.user?.jid) {
-return
-}
 	
 m.exp += Math.ceil(Math.random() * 10)
 let usedPrefix
@@ -1113,7 +1126,9 @@ const bot = (m.isGroup ? participants.find(u => conn.decodeJid(u.id) == this.use
 const isRAdmin = user?.admin == 'superadmin' || false
 const isAdmin = isRAdmin || user?.admin == 'admin' || false //user admins? 
 const isBotAdmin = bot?.admin || false //Detecta sin el bot es admin
-
+m.isWABusiness = global.conn.authState?.creds?.platform === 'smba' || global.conn.authState?.creds?.platform === 'smbi'
+m.isChannel = m.chat.includes('@newsletter') || m.sender.includes('@newsletter')
+	
 const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
 for (let name in global.plugins) {
 let plugin = global.plugins[name]
@@ -1439,26 +1454,17 @@ text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'We
 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
 			    
 if (chat.antifake && isBotAdminNn && action === 'add') {
-const prefijosPredeterminados = [1, 2, 4, 6, 7, 8, 9] // Puedes editar que usuarios deseas que se eliminen si empieza por algunos de los números
-const rutaArchivo = './prefijos.json'
-let prefijos = []
-const existeArchivo = fs.existsSync(rutaArchivo)
-if (existeArchivo) {
-try {
-const contenido = fs.readFileSync(rutaArchivo, 'utf-8')
-prefijos = JSON.parse(contenido)
-} catch (error) {
-console.log('Error "prefijos.json": ', error)
-return
-}} else {
-prefijos = prefijosPredeterminados
-}
-const comienzaConPrefijo = prefijos.some(prefijo => user.startsWith(prefijo.toString()))
+const prefijosPredeterminados = [2, 4, 6, 7, 8, 9] // Puedes personalizar los prefijos de los usuarios que deseas eliminar, especificando los que deben ser bloqueados si el número empieza con alguno de ellos.
+let prefijos = (Array.isArray(chat.sCondition) && chat.sCondition.length > 0) || chat.sCondition !== "" ? chat.sCondition : prefijosPredeterminados
+const comienzaConPrefijo = prefijos.some(prefijo => user.startsWith(`+${prefijo}`))
 if (comienzaConPrefijo) {
 let texto = mid.mAdvertencia + mid.mFake2(user)
 await conn.sendMessage(id, { text: texto, mentions: [user] })
-let responseb = await conn.groupParticipantsUpdate(id, [user], 'remove')
-if (responseb[0].status === "404") return      
+if (m.key.participant && m.key.id) {
+await conn.sendMessage(id, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
+}
+//let responseb = await conn.groupParticipantsUpdate(id, [user], 'remove')
+//if (responseb[0].status === "404") return
 }}
 	
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
@@ -1529,13 +1535,16 @@ await this.updateBlockStatus(nk.from, 'block')
 
 export async function deleteUpdate(message) {
 try {
-const { fromMe, id, participant } = message
+const { fromMe, id, participant, remoteJid } = message
 if (fromMe) return 
 let msg = this.serializeM(this.loadMessage(id))
+console.log(msg)
 let chat = global.db.data.chats[msg?.chat] || {}
 if (!chat?.delete) return 
 if (!msg) return 
-if (!msg?.isGroup) return 
+let isGroup = remoteJid.endsWith('@g.us')
+let isPrivate = !isGroup && remoteJid.endsWith('@s.whatsapp.net')
+if (!isGroup && !isPrivate) return
 const antideleteMessage = `*╭━━⬣ ${lenguajeGB['smsCont19']()} ⬣━━ 𓃠*
 ${lenguajeGB['smsCont20']()} @${participant.split`@`[0]}
 ${lenguajeGB['smsCont21']()}
@@ -1572,9 +1581,4 @@ watchFile(file, async () => {
 unwatchFile(file)
 console.log(chalk.redBright('Update \'handler.js\''));
 //if (global.reloadHandler) console.log(await global.reloadHandler());
-  
-if (global.conns && global.conns.length > 0 ) {
-const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
-for (const userr of users) {
-userr.subreloadHandler(false)
-}}});
+})
