@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        - uses: MoriCommunity/checkout@v3
+        uses: actions/checkout@v3  # ✅ إصلاح الخطأ هنا
 
       - name: Unzip the file
         run: unzip plugins.zip -d .  # فك الضغط في المسار الحالي
