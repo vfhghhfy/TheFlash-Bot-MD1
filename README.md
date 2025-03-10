@@ -30,7 +30,7 @@
 
 ### 👇 `جميع التحديثات موجودة هنا!!`
 [![الروابط](https://img.shields.io/badge/Mori-Channel-000000%7D?style=for-the-badge&logo=biolink&logoColor=white)](https://whatsapp.com/channel/0029Vb0WYOu2f3EAb74gf02h)
-> منصه ميجا هوست لي رفع بوتك عليها مضمونة 100% **[Mega Hosting 📍](https://github.com/MoriCommunity/TheFlashBot-MD1/blob/master/terms.md)** 
+> منصه ميجا هوست لي رفع بوتك عليها مضمونة 100% **[Mega Hosting 📍](https://host.joanimi-world.site)** 
 </p>
 
 ### 🆕 أهم مميزات هذا المشروع إطلع على الملخص!
