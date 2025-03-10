@@ -30,6 +30,8 @@
 
 ### 👇 `جميع التحديثات موجودة هنا!!`
 [![الروابط](https://img.shields.io/badge/Mori-Channel-000000%7D?style=for-the-badge&logo=biolink&logoColor=white)](https://whatsapp.com/channel/0029Vb0WYOu2f3EAb74gf02h)
+> هذا المشروع مفتوح المصدر، لمزيد من المعلومات قم بزيارة **[سياسة فلاش بوت 📍](https://github.com/MoriCommunity/TheFlashBot-MD1/blob/master/terms.md)** 
+</p>
 
 ### 🆕 أهم مميزات هذا المشروع إطلع على الملخص!
 <details>
