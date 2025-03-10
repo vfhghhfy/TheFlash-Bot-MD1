@@ -10,9 +10,9 @@ jobs:
       - name: Checkout repository
         - uses: MoriCommunity/checkout@v3
         
-      - name: Unzip the file
-        run: unzip plugins.zip -d .  # فك الضغط في المسار الحالي
-
+      - name: List contents of ZIP file
+        run: unzip -l plugins.zip
+        
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions"
