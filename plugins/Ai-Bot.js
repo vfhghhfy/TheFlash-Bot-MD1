@@ -1,48 +1,85 @@
-//كود ديب-سيك ذكاء اصطناعي 📍
-// Channel>>> https://whatsapp.com/channel/0029Vb0WYOu2f3EAb74gf02h
+import fs from 'fs';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const jimp_1 = require('jimp');
 
-//By Mori-Dev 
+let handler = async (m, { conn, command, usedPrefix }) => {
+  let q = m.quoted ? m.quoted : m;
+  let mime = (q.msg ? q.msg : q).mimetype ? q.mimetype : q.mediaType || '';
 
-import fetch from 'node-fetch';
-
-const handler = async (m, { conn, text }) => {
-  try {
-    if (!text) {
-      return conn.reply(
-        m.chat,
-        '*مرحبًا! أنا ديب-سيك ذكاء اصطناعي، كيف يمكنني مساعدتك؟*\nمـثال:\n*.ديب من هو رئيس كوريه الجنوبية؟*\n*.ديب كيف حالك؟!*\n\n> *By Coding Mori*\n> *By API Shawza*',
-        m
-      );
-    }
-
-    const Mori = `https://the-end-api.vercel.app/home/sections/Ai/api/DeepAI/chat?q=${encodeURIComponent(text)}&lc=ar`;
-
-    const response = await fetch(Mori);
-    const rawResponse = await response.text();
-
-    //console.log('Raw API Response:', rawResponse);
-
+  if (/image/g.test(mime) && !/webp/g.test(mime)) {
     try {
-      const data = JSON.parse(rawResponse);
-      //console.log('Parsed API Response:', data);
+      let media = await q.download();
+      let botNumber = await conn.user.jid;
+      let { img } = await pepe(media);
 
-      if (data && data.data) {
-        conn.reply(m.chat, data.data, m);
-      } else {
-        conn.reply(m.chat, 'الرد من الـ API لا يحتوي على نتيجة.', m);
-      }
-    } catch (jsonError) {
-      console.error('JSON Parse Error:', jsonError);
-      conn.reply(m.chat, 'حدث خطأ أثناء قراءة الرد من الخدمة.', m);
+      // تغيير صورة البروفايل
+      await conn.query({
+        tag: 'iq',
+        attrs: {
+          to: "@s.whatsapp.net",
+          type: 'set',
+          xmlns: 'w:profile:picture'
+        },
+        content: [
+          {
+            tag: 'picture',
+            attrs: { type: 'image' },
+            content: img
+          }
+        ]
+      });
+
+      // إرسال رسالة مزخرفة مع أزرار
+      const buttons = [
+        { buttonId: `${usedPrefix}حطها_بروفايل`, buttonText: { displayText: 'تغيير البروفايل مرة أخرى' }, type: 1 },
+        { buttonId: `${usedPrefix}مساعدة`, buttonText: { displayText: 'مساعدة' }, type: 1 }
+      ];
+
+      const buttonMessage = {
+        text: `*🎉 تم تغيير صورة البروفايل بنجاح!*\n\n*يمكنك الضغط على الأزرار أدناه للتفاعل:*`,
+        footer: '© MysticBot',
+        buttons: buttons,
+        headerType: 1
+      };
+
+      await conn.sendMessage(m.chat, buttonMessage, { quoted: m });
+    } catch (e) {
+      console.log(e);
+      m.reply('حدثحاول مرة أخرى لاحقًا');
     }
-  } catch (error) {
-    console.error('Fetch Error:', error);
-    conn.reply(m.chat, `حدث خطأ أثناء الاتصال بالخدمة. التفاصيل: ${error.message}`, m);
+  } else {
+    // إرسال رسالة توجيهية مع أزرار
+    const buttons = [
+      { buttonId: `${usedPrefix}مساعدة`, buttonText: { displayText: 'مساعدة' }, type: 1 }
+    ];
+
+    const buttonMessage = {
+      text: `*📸 أرسل ا مع التسمية التوضيحية ${usedPrefix + command}*\n*أو قم بالاشارة للصورة التي تريد وضعها كبروفايل البوت*\n\n*يمكنك الضغط على الزر أدناه للحصول على المساعدة:*`,
+      footer: '© MysticBot',
+      buttons: buttons,
+      headerType: 1
+    };
+
+    await conn.sendMessage(m.chat, buttonMessage, { quoted: m });
   }
 };
 
-handler.help = ['M O R I'];
-handler.tags = ['M O R I'];
-handler.command = /^(ديب|ديب-سيك|بوت)$/i;
+handler.help = ['حطها_بروفايل'];
+handler.tags = ['owner'];
+handler.command = /^(حطها_بروفايل)$/i;
+handler.rowner = true;
 
 export default handler;
+
+async function pepe(media) {
+  const jimp = require('jimp');
+  const image = await jimp.read(media);
+  const min = image.getWidth();
+  const max = image.getHeight();
+  const cropped = image.crop(0, 0, min, max);
+  return {
+    img: await cropped.scaleToFit(720, 720).getBufferAsync(jimp.MIME_JPEG),
+    preview: await cropped.normalize().getBufferAsync(jimp.MIME_JPEG)
+  };
+}
